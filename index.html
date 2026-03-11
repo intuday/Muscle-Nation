@@ -1,0 +1,3158 @@
+<!-- Google Fonts -->
+ <!DOCTYPE html>
+<html lang="en">
+    <title>MUSCLE NATION | GYM</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- AOS Animation Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+    /* ========================================
+       CONTACT DETAILS - EASY TO EDIT
+       ======================================== */
+    :root {
+        /* === EDIT YOUR DETAILS HERE === */
+        --phone: "+91-XXXXXXXXXX";
+        --whatsapp-link: "https://wa.me/91XXXXXXXXXX";
+        --email: "info@musclenation.com";
+        --address: "Your Address Here";
+        --hours: "6:00 AM – 11:00 PM";
+
+        /* === BRAND COLORS === */
+        --black: #0B0B0B;
+        --dark: #111111;
+        --dark-gray: #1a1a1a;
+        --medium-gray: #2a2a2a;
+        --light-gray: #8a8a8a;
+        --white: #FFFFFF;
+        --off-white: #f5f5f5;
+        --gold: #D4AF37;
+        --gold-light: #e8c84a;
+        --gold-dark: #b8941e;
+        --gold-glow: rgba(212, 175, 55, 0.3);
+        --overlay: rgba(11, 11, 11, 0.85);
+    }
+
+    /* ========================================
+       RESET & BASE
+       ======================================== */
+    *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: var(--black);
+        color: var(--white);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    ul { list-style: none; }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .section-padding {
+        padding: 100px 0;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .section-header .label {
+        display: inline-block;
+        color: var(--gold);
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        position: relative;
+    }
+
+    .section-header .label::before,
+    .section-header .label::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: 30px;
+        height: 1px;
+        background: var(--gold);
+    }
+    .section-header .label::before { left: -40px; }
+    .section-header .label::after { right: -40px; }
+
+    .section-header h2 {
+        font-size: clamp(32px, 5vw, 48px);
+        font-weight: 800;
+        text-transform: uppercase;
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+
+    .section-header h2 span {
+        color: var(--gold);
+    }
+
+    .section-header p {
+        color: var(--light-gray);
+        font-size: 16px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* Buttons */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 32px;
+        border-radius: 50px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        transition: left 0.4s ease;
+        z-index: -1;
+    }
+
+    .btn:hover::before {
+        left: 0;
+    }
+
+    .btn-gold {
+        background: var(--gold);
+        color: var(--black);
+        border-color: var(--gold);
+    }
+
+    .btn-gold::before {
+        background: var(--gold-light);
+    }
+
+    .btn-gold:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px var(--gold-glow);
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: var(--white);
+        border-color: var(--white);
+    }
+
+    .btn-outline::before {
+        background: var(--white);
+    }
+
+    .btn-outline:hover {
+        color: var(--black);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-small {
+        padding: 10px 24px;
+        font-size: 12px;
+    }
+
+    /* ========================================
+       PRELOADER
+       ======================================== */
+    #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--black);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+
+    #preloader.hide {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .loader {
+        text-align: center;
+    }
+
+    .loader-bar {
+        width: 200px;
+        height: 3px;
+        background: var(--dark-gray);
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 20px auto 0;
+    }
+
+    .loader-bar::after {
+        content: '';
+        display: block;
+        width: 60%;
+        height: 100%;
+        background: var(--gold);
+        border-radius: 10px;
+        animation: loading 1.2s ease-in-out infinite;
+    }
+
+    @keyframes loading {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(250%); }
+    }
+
+    .loader h3 {
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+    }
+
+    .loader h3 span {
+        color: var(--blue);
+    }
+
+    /* ========================================
+       NAVBAR
+       ======================================== */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 18px 0;
+        transition: all 0.4s ease;
+        background: transparent;
+    }
+
+    .navbar.scrolled {
+        background: rgba(11, 11, 11, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 12px 0;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 24px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .nav-logo i {
+        color: var(--gold);
+        font-size: 28px;
+    }
+
+    .nav-logo span {
+        color: var(--gold);
+    }
+
+    .nav-menu {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .nav-menu a {
+        font-size: 13px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        padding: 5px 0;
+    }
+
+    .nav-menu a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gold);
+        transition: width 0.3s ease;
+    }
+
+    .nav-menu a:hover::after,
+    .nav-menu a.active::after {
+        width: 100%;
+    }
+
+    .nav-menu a:hover {
+        color: var(--gold);
+    }
+
+    .nav-btns {
+        display: flex;
+        gap: 12px;
+    }
+
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 1001;
+    }
+
+    .hamburger span {
+        width: 28px;
+        height: 2px;
+        background: var(--white);
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background: var(--dark);
+        z-index: 999;
+        padding: 100px 40px;
+        transition: right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+        right: 0;
+    }
+
+    .mobile-menu a {
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--medium-gray);
+    }
+
+    .mobile-menu a:hover {
+        color: var(--gold);
+        padding-left: 10px;
+    }
+
+    .mobile-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 998;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* ========================================
+       HERO SECTION
+       ======================================== */
+    .hero {
+        position: relative;
+        height: 100vh;
+        min-height: 700px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    .hero-bg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.3);
+        transform: scale(1.1);
+        animation: heroZoom 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroZoom {
+        0% { transform: scale(1.1); }
+        100% { transform: scale(1.2); }
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            135deg,
+            rgba(11, 11, 11, 0.9) 0%,
+            rgba(11, 11, 11, 0.5) 50%,
+            rgba(11, 11, 11, 0.8) 100%
+        );
+        z-index: 1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 750px;
+    }
+
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(212, 175, 55, 0.15);
+        border: 1px solid var(--gold);
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 25px;
+        animation: fadeInUp 1s ease 0.3s both;
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 8vw, 90px);
+        font-weight: 900;
+        text-transform: uppercase;
+        line-height: 1;
+        margin-bottom: 20px;
+        animation: fadeInUp 1s ease 0.5s both;
+    }
+
+    .hero h1 span {
+        display: block;
+        color: var(--gold);
+        text-shadow: 0 0 60px var(--gold-glow);
+    }
+
+    .hero-tagline {
+        font-size: clamp(16px, 2.5vw, 22px);
+        color: var(--light-gray);
+        font-weight: 300;
+        margin-bottom: 35px;
+        max-width: 550px;
+        animation: fadeInUp 1s ease 0.7s both;
+    }
+
+    .hero-btns {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-bottom: 50px;
+        animation: fadeInUp 1s ease 0.9s both;
+    }
+
+    .hero-stats {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        animation: fadeInUp 1s ease 1.1s both;
+    }
+
+    .hero-stat {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .hero-stat i {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        border: 1px solid var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        font-size: 16px;
+    }
+
+    .hero-stat .info h4 {
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .hero-stat .info p {
+        font-size: 11px;
+        color: var(--light-gray);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .hero-scroll {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        text-align: center;
+        animation: bounce 2s ease infinite;
+    }
+
+    .hero-scroll a {
+        color: var(--gold);
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .hero-scroll i {
+        display: block;
+        margin-top: 8px;
+        font-size: 20px;
+    }
+
+    @keyframes bounce {
+        0%, 100% { transform: translateX(-50%) translateY(0); }
+        50% { transform: translateX(-50%) translateY(-10px); }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* ========================================
+       USP / FEATURES
+       ======================================== */
+    .features {
+        background: var(--dark);
+        position: relative;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+    }
+
+    .feature-card {
+        background: var(--dark-gray);
+        border: 1px solid var(--medium-gray);
+        border-radius: 16px;
+        padding: 40px 30px;
+        text-align: center;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .feature-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--gold);
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+    }
+
+    .feature-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--gold);
+        box-shadow: 0 20px 50px rgba(212, 175, 55, 0.1);
+    }
+
+    .feature-card .icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: rgba(212, 175, 55, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 28px;
+        color: var(--gold);
+        transition: all 0.4s ease;
+    }
+
+    .feature-card:hover .icon {
+        background: var(--gold);
+        color: var(--black);
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    .feature-card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+
+    .feature-card p {
+        font-size: 13px;
+        color: var(--light-gray);
+        line-height: 1.7;
+    }
+
+    /* ========================================
+       MEMBERSHIP PLANS
+       ======================================== */
+    .membership {
+        background: var(--black);
+        position: relative;
+    }
+
+    .plans-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+
+    .plan-card {
+        background: var(--dark-gray);
+        border: 1px solid var(--medium-gray);
+        border-radius: 20px;
+        padding: 45px 35px;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .plan-card.popular {
+        border-color: var(--gold);
+        background: linear-gradient(145deg, var(--dark-gray), rgba(212, 175, 55, 0.05));
+    }
+
+    .plan-card.popular::before {
+        content: 'MOST POPULAR';
+        position: absolute;
+        top: 20px;
+        right: -30px;
+        background: var(--gold);
+        color: var(--black);
+        font-size: 10px;
+        font-weight: 700;
+        padding: 5px 40px;
+        transform: rotate(45deg);
+        letter-spacing: 1px;
+    }
+
+    .plan-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .plan-card .plan-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+    }
+
+    .plan-card .price {
+        font-size: 48px;
+        font-weight: 900;
+        margin-bottom: 5px;
+    }
+
+    .plan-card .price span {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--light-gray);
+    }
+
+    .plan-card .admission {
+        font-size: 12px;
+        color: var(--light-gray);
+        margin-bottom: 25px;
+    }
+
+    .plan-card .divider {
+        width: 50px;
+        height: 2px;
+        background: var(--gold);
+        margin-bottom: 25px;
+    }
+
+    .plan-card .features-list {
+        margin-bottom: 30px;
+    }
+
+    .plan-card .features-list li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 0;
+        font-size: 14px;
+        color: var(--off-white);
+    }
+
+    .plan-card .features-list li i {
+        color: var(--gold);
+        font-size: 14px;
+        width: 20px;
+    }
+
+    .plan-card .features-list li.disabled {
+        color: var(--light-gray);
+        text-decoration: line-through;
+    }
+
+    .plan-card .features-list li.disabled i {
+        color: var(--light-gray);
+    }
+
+    /* FAQ Accordion */
+    .faq-section {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .faq-section h3 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    .faq-item {
+        border-bottom: 1px solid var(--medium-gray);
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        background: none;
+        border: none;
+        color: var(--white);
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        text-align: left;
+        padding: 20px 0;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+        transition: color 0.3s ease;
+    }
+
+    .faq-question:hover {
+        color: var(--gold);
+    }
+
+    .faq-question i {
+        transition: transform 0.3s ease;
+        color: var(--gold);
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-question i {
+        transform: rotate(180deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 200px;
+        padding-bottom: 20px;
+    }
+
+    .faq-answer p {
+        font-size: 14px;
+        color: var(--light-gray);
+        line-height: 1.8;
+    }
+
+    /* ========================================
+       CLASS SCHEDULE
+       ======================================== */
+    .classes {
+        background: var(--dark);
+    }
+
+    .filter-chips {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 40px;
+    }
+
+    .chip {
+        padding: 10px 24px;
+        border-radius: 50px;
+        border: 1px solid var(--medium-gray);
+        background: transparent;
+        color: var(--white);
+        font-family: 'Poppins', sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .chip:hover, .chip.active {
+        background: var(--gold);
+        color: var(--black);
+        border-color: var(--gold);
+    }
+
+    .schedule-table-wrapper {
+        overflow-x: auto;
+        border-radius: 16px;
+        border: 1px solid var(--medium-gray);
+    }
+
+    .schedule-table {
+        width: 100%;
+        min-width: 800px;
+        border-collapse: collapse;
+    }
+
+    .schedule-table th {
+        background: var(--gold);
+        color: var(--black);
+        padding: 15px 12px;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+
+    .schedule-table td {
+        padding: 14px 12px;
+        text-align: center;
+        font-size: 12px;
+        border-bottom: 1px solid var(--medium-gray);
+        background: var(--dark-gray);
+        transition: all 0.3s ease;
+    }
+
+    .schedule-table tr:hover td {
+        background: var(--medium-gray);
+    }
+
+    .schedule-table .time-col {
+        font-weight: 700;
+        color: var(--gold);
+        background: rgba(212, 175, 55, 0.05);
+        white-space: nowrap;
+    }
+
+    .schedule-table .class-name {
+        font-weight: 600;
+        color: var(--white);
+    }
+
+    .schedule-table .rest {
+        color: var(--light-gray);
+        font-style: italic;
+    }
+
+    .schedule-cta {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    /* ========================================
+       TRAINERS
+       ======================================== */
+    .trainers {
+        background: var(--black);
+    }
+
+    .trainers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 25px;
+    }
+
+    .trainer-card {
+        background: var(--dark-gray);
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--medium-gray);
+        transition: all 0.4s ease;
+        position: relative;
+    }
+
+    .trainer-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--gold);
+        box-shadow: 0 20px 50px rgba(212, 175, 55, 0.1);
+    }
+
+    .trainer-img {
+        position: relative;
+        height: 320px;
+        overflow: hidden;
+    }
+
+    .trainer-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+
+    .trainer-card:hover .trainer-img img {
+        transform: scale(1.1);
+    }
+
+    .trainer-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: linear-gradient(transparent, rgba(0,0,0,0.9));
+        display: flex;
+        gap: 12px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+    }
+
+    .trainer-card:hover .trainer-overlay {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .trainer-overlay a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--gold);
+        color: var(--black);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        transition: transform 0.3s ease;
+    }
+
+    .trainer-overlay a:hover {
+        transform: scale(1.2);
+    }
+
+    .trainer-info {
+        padding: 25px;
+    }
+
+    .trainer-info h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .trainer-info .specialization {
+        color: var(--gold);
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+
+    .trainer-info .details {
+        display: flex;
+        gap: 15px;
+        font-size: 11px;
+        color: var(--light-gray);
+    }
+
+    .trainer-info .details span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .trainer-info .details i {
+        color: var(--gold);
+    }
+
+    /* ========================================
+       TRANSFORMATIONS
+       ======================================== */
+    .transformations {
+        background: var(--dark);
+    }
+
+    .transformation-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+    }
+
+    .transformation-card {
+        background: var(--dark-gray);
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--medium-gray);
+        transition: all 0.4s ease;
+    }
+
+    .transformation-card:hover {
+        border-color: var(--gold);
+        box-shadow: 0 15px 40px rgba(212, 175, 55, 0.1);
+    }
+
+    /* Before/After Slider */
+    .ba-slider {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        cursor: ew-resize;
+    }
+
+    .ba-slider .ba-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .ba-slider .ba-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .ba-slider .ba-before {
+        z-index: 2;
+        overflow: hidden;
+        width: 50%;
+    }
+
+    .ba-slider .ba-before img {
+        filter: grayscale(50%);
+    }
+
+    .ba-slider .ba-after {
+        z-index: 1;
+    }
+
+    .ba-slider .ba-handle {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 4px;
+        height: 100%;
+        background: var(--gold);
+        z-index: 3;
+        transform: translateX(-50%);
+        cursor: ew-resize;
+    }
+
+    .ba-slider .ba-handle::after {
+        content: '\f337';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: var(--gold);
+        color: var(--black);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        box-shadow: 0 0 20px var(--gold-glow);
+    }
+
+    .ba-label {
+        position: absolute;
+        bottom: 10px;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        z-index: 4;
+    }
+
+    .ba-label.before-label {
+        left: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+    }
+
+    .ba-label.after-label {
+        right: 10px;
+        background: var(--gold);
+        color: var(--black);
+    }
+
+    .transformation-story {
+        padding: 25px;
+    }
+
+    .transformation-story h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .transformation-story .goal {
+        color: var(--gold);
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+
+    .transformation-story p {
+        font-size: 13px;
+        color: var(--light-gray);
+        margin-bottom: 15px;
+        line-height: 1.7;
+    }
+
+    .transformation-meta {
+        display: flex;
+        gap: 20px;
+    }
+
+    .transformation-meta .meta-item {
+        text-align: center;
+    }
+
+    .transformation-meta .meta-value {
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--gold);
+    }
+
+    .transformation-meta .meta-label {
+        font-size: 10px;
+        color: var(--light-gray);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* ========================================
+       TESTIMONIALS
+       ======================================== */
+    .testimonials {
+        background: var(--black);
+        position: relative;
+    }
+
+    .testimonials .swiper {
+        padding-bottom: 60px;
+    }
+
+    .testimonial-card {
+        background: var(--dark-gray);
+        border: 1px solid var(--medium-gray);
+        border-radius: 16px;
+        padding: 35px;
+        transition: all 0.4s ease;
+        height: auto;
+    }
+
+    .testimonial-card:hover {
+        border-color: var(--gold);
+    }
+
+    .testimonial-stars {
+        color: var(--gold);
+        font-size: 14px;
+        margin-bottom: 15px;
+        display: flex;
+        gap: 3px;
+    }
+
+    .testimonial-text {
+        font-size: 15px;
+        line-height: 1.8;
+        color: var(--off-white);
+        margin-bottom: 20px;
+        font-style: italic;
+        position: relative;
+    }
+
+    .testimonial-text::before {
+        content: '"';
+        font-size: 60px;
+        font-weight: 900;
+        color: var(--gold);
+        opacity: 0.3;
+        position: absolute;
+        top: -20px;
+        left: -5px;
+        line-height: 1;
+    }
+
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .testimonial-author img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--gold);
+    }
+
+    .testimonial-author h4 {
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    .testimonial-author p {
+        font-size: 12px;
+        color: var(--light-gray);
+    }
+
+    .swiper-pagination-bullet {
+        background: var(--medium-gray);
+        opacity: 1;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: var(--gold);
+        width: 30px;
+        border-radius: 10px;
+    }
+
+    /* ========================================
+       CONTACT
+       ======================================== */
+    .contact {
+        background: var(--dark);
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .contact-info-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .contact-card {
+        background: var(--dark-gray);
+        border: 1px solid var(--medium-gray);
+        border-radius: 12px;
+        padding: 25px 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .contact-card:hover {
+        border-color: var(--gold);
+        transform: translateY(-5px);
+    }
+
+    .contact-card i {
+        font-size: 24px;
+        color: var(--gold);
+        margin-bottom: 12px;
+    }
+
+    .contact-card h4 {
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .contact-card p {
+        font-size: 13px;
+        color: var(--light-gray);
+    }
+
+    .contact-card a {
+        color: var(--gold);
+    }
+
+    .contact-card a:hover {
+        text-decoration: underline;
+    }
+
+    .map-container {
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--medium-gray);
+        height: 250px;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        filter: grayscale(80%) contrast(1.2);
+    }
+
+    .contact-form {
+        background: var(--dark-gray);
+        border: 1px solid var(--medium-gray);
+        border-radius: 16px;
+        padding: 40px;
+    }
+
+    .contact-form h3 {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 25px;
+    }
+
+    .contact-form h3 span {
+        color: var(--gold);
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .form-group label {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+        color: var(--light-gray);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 14px 18px;
+        background: var(--medium-gray);
+        border: 1px solid transparent;
+        border-radius: 10px;
+        color: var(--white);
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--gold);
+    }
+
+    .form-group select option {
+        background: var(--dark-gray);
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    .footer {
+        background: var(--black);
+        border-top: 1px solid var(--medium-gray);
+        padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    .footer-brand .nav-logo {
+        margin-bottom: 15px;
+    }
+
+    .footer-brand p {
+        font-size: 13px;
+        color: var(--light-gray);
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
+
+    .footer-socials {
+        display: flex;
+        gap: 10px;
+    }
+
+    .footer-socials a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid var(--medium-gray);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+
+    .footer-socials a:hover {
+        background: var(--gold);
+        color: var(--black);
+        border-color: var(--gold);
+        transform: translateY(-3px);
+    }
+
+    .footer-col h4 {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+        color: var(--gold);
+    }
+
+    .footer-col ul li {
+        margin-bottom: 10px;
+    }
+
+    .footer-col ul li a {
+        font-size: 13px;
+        color: var(--light-gray);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .footer-col ul li a:hover {
+        color: var(--gold);
+        padding-left: 5px;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid var(--medium-gray);
+        padding-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .footer-bottom p {
+        font-size: 12px;
+        color: var(--light-gray);
+    }
+
+    .footer-bottom p span {
+        color: var(--gold);
+    }
+
+    /* ========================================
+       FLOATING BUTTONS
+       ======================================== */
+    .floating-btns {
+        position: fixed;
+        bottom: 30px;
+        right: 25px;
+        z-index: 900;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .float-btn {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        color: var(--white);
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+    }
+
+    .float-btn:hover {
+        transform: scale(1.15);
+    }
+
+    .float-btn.whatsapp {
+        background: #25D366;
+    }
+
+    .float-btn.call {
+        background: var(--gold);
+        color: var(--black);
+    }
+
+    .float-btn.scroll-top {
+        background: var(--medium-gray);
+        font-size: 16px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .float-btn.scroll-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* ========================================
+       COUNTER ANIMATION
+       ======================================== */
+    .counter-section {
+        background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+        padding: 60px 0;
+    }
+
+    .counter-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        text-align: center;
+    }
+
+    .counter-item h3 {
+        font-size: 42px;
+        font-weight: 900;
+        color: var(--black);
+        margin-bottom: 5px;
+    }
+
+    .counter-item p {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--black);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        opacity: 0.7;
+    }
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media (max-width: 1024px) {
+        .nav-menu, .nav-btns {
+            display: none;
+        }
+
+        .hamburger {
+            display: flex;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .counter-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .section-padding {
+            padding: 70px 0;
+        }
+
+        .contact-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .contact-info-cards {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .hero-stats {
+            gap: 25px;
+        }
+
+        .transformation-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .plans-grid {
+            grid-template-columns: 1fr;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .footer-bottom {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero h1 {
+            font-size: 42px;
+        }
+
+        .hero-btns {
+            flex-direction: column;
+        }
+
+        .hero-btns .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .hero-stats {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-info-cards {
+            grid-template-columns: 1fr;
+        }
+
+        .filter-chips {
+            gap: 6px;
+        }
+
+        .chip {
+            padding: 8px 16px;
+            font-size: 11px;
+        }
+
+        .counter-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .counter-item h3 {
+            font-size: 32px;
+        }
+    }
+
+    /* Utility */
+    .text-gold { color: var(--gold); }
+    .bg-dark { background: var(--dark); }
+    /* NAVBAR LOGO */
+
+/* ==============================
+   NAVBAR OVERLAP FIX (COMBINED)
+   ============================== */
+
+.navbar .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;                 /* logo & menu spacing */
+}
+
+/* Logo block */
+.nav-logo{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;            /* don't shrink */
+  white-space: nowrap;       /* prevent breaking */
+}
+
+/* Logo image */
+.nav-logo-img{
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;        /* FIXED (px missing earlier) */
+  vertical-align: middle;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+/* Desktop menu */
+.nav-menu{
+  margin-left: auto;         /* push menu to the right */
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: nowrap;         /* stop wrapping that causes overlap */
+}
+
+/* Optional: slightly reduce logo text size if still tight */
+.nav-logo{
+  font-size: 22px;           /* adjust if needed */
+  letter-spacing: 1px;
+}
+
+/* Show hamburger earlier so no overlap on medium screens */
+@media (max-width: 1150px){
+  .nav-menu, .nav-btns{ display: none; }
+  .hamburger{ display: flex; }
+}
+
+/* FOOTER LOGO */
+
+.footer-logo{
+width:40px;
+margin-right:8px;
+}
+
+/* PRELOADER LOGO */
+
+.logo-loader{
+width: 120px;px;
+margin:auto;
+margin-bottom:10px;
+animation:logoPop 1.2s ease;
+}
+
+.logo-loader img{
+width: 1190px;
+
+}
+
+@keyframes logoPop{
+
+0%{
+opacity:0;
+transform:scale(0.5);
+}
+
+100%{
+opacity:1;
+transform:scale(1);
+}
+
+}
+    /* =========================
+   PRELOADER
+========================= */
+
+#preloader{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #0b0b0b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader{
+    text-align: center;
+}
+
+
+/* =========================
+   LOGO INTRO
+========================= */
+
+.logo-intro{
+    width: 200px;
+    opacity: 0;
+    transform: scale(0.4) rotate(-10deg);
+    animation: logoLanding 1.8s ease forwards;
+
+    filter: drop-shadow(0 0 10px #ffd000)
+            drop-shadow(0 0 20px #ffd000)
+            drop-shadow(0 0 40px #ffd000);
+}
+
+
+/* Landing Animation */
+
+@keyframes logoLanding{
+
+    0%{
+        opacity:0;
+        transform:scale(0.3) rotate(-15deg);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.2) rotate(3deg);
+    }
+
+    70%{
+        transform:scale(0.95);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.loader h3{
+    color:white;
+    font-size:28px;
+    margin-top:15px;
+    letter-spacing:2px;
+}
+
+.loader span{
+    color:#ffd000;
+}
+
+
+/* =========================
+   LOADING BAR
+========================= */
+
+.loader-bar{
+    width:200px;
+    height:4px;
+    background:#222;
+    margin:20px auto;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.loader-bar::before{
+    content:'';
+    display:block;
+    height:100%;
+    width:0;
+    background:linear-gradient(90deg,#ffd000,#ffffff,#ffd000);
+    animation:loadbar 2.2s linear forwards;
+}
+
+@keyframes loadbar{
+
+    0%{
+        width:0;
+    }
+
+    100%{
+        width:100%;
+    }
+
+}
+</style>
+<!-- ========== PRELOADER ========== -->
+<div id="preloader">
+    <div class="loader">
+
+        <div class="logo-loader">
+            <img src="image.png" alt="Muscle Nation Logo">
+        </div>
+
+        <h3>Muscle <span>Nation</span></h3>
+        <div class="loader-bar"></div>
+
+    </div>
+</div>
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar" id="navbar">
+    <div class="container">
+        <a href="#home" class="nav-logo">
+    <img src="image.png" class="nav-logo-img">
+    Muscle<span>Nation</span>
+</a>
+
+        <div class="nav-menu" id="navMenu">
+            <a href="#home" class="active">Home</a>
+            <a href="#features">About</a>
+            <a href="#membership">Membership</a>
+            <a href="#classes">Classes</a>
+            <a href="#trainers">Trainers</a>
+            <a href="#transformations">Results</a>
+            <a href="#testimonials">Reviews</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div class="nav-btns">
+            <a href="#membership" class="btn btn-gold btn-small">Join Now</a>
+            <a href="#contact" class="btn btn-outline btn-small">Free Trial</a>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#features">About</a>
+    <a href="#membership">Membership</a>
+    <a href="#classes">Classes</a>
+    <a href="#trainers">Trainers</a>
+    <a href="#transformations">Results</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#contact">Contact</a>
+    <a href="#membership" class="btn btn-gold" style="text-align:center; margin-top:20px;">Join Now</a>
+</div>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="home">
+    <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80" alt="Muscle Nation Gym">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-bolt"></i>
+                #1 Premium Fitness Destination
+            </div>
+            <h1>
+                Muscle
+                <span>Nation</span>
+            </h1>
+            <p class="hero-tagline">
+                Train Strong. Live Strong. — Unleash the beast within at the nation's most elite training facility. Your transformation starts today.
+            </p>
+            <div class="hero-btns">
+                <a href="#membership" class="btn btn-gold">
+                    <i class="fas fa-crown"></i> Join Now
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    <i class="fas fa-calendar-check"></i> Book Free Trial
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <i class="fas fa-clock"></i>
+                    <div class="info">
+                        <h4>6 AM – 11 PM</h4>
+                        <p>Open Daily</p>
+                    </div>
+                </div>
+                <div class="hero-stat">
+                    <i class="fas fa-award"></i>
+                    <div class="info">
+                        <h4>Certified Trainers</h4>
+                        <p>NSCA & ACE Certified</p>
+                    </div>
+                </div>
+                <div class="hero-stat">
+                    <i class="fas fa-user-check"></i>
+                    <div class="info">
+                        <h4>Personal Training</h4>
+                        <p>1-on-1 Sessions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-scroll">
+        <a href="#features">
+            Scroll Down
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </div>
+</section>
+
+<!-- ========== COUNTER SECTION ========== -->
+<section class="counter-section">
+    <div class="container">
+        <div class="counter-grid">
+            <div class="counter-item" data-aos="fade-up" data-aos-delay="0">
+                <h3><span class="counter" data-target="5000">0</span>+</h3>
+                <p>Happy Members</p>
+            </div>
+            <div class="counter-item" data-aos="fade-up" data-aos-delay="100">
+                <h3><span class="counter" data-target="25">0</span>+</h3>
+                <p>Expert Trainers</p>
+            </div>
+            <div class="counter-item" data-aos="fade-up" data-aos-delay="200">
+                <h3><span class="counter" data-target="50">0</span>+</h3>
+                <p>Weekly Classes</p>
+            </div>
+            <div class="counter-item" data-aos="fade-up" data-aos-delay="300">
+                <h3><span class="counter" data-target="8">0</span>+</h3>
+                <p>Years Experience</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FEATURES / USP ========== -->
+<section class="features section-padding" id="features">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <div class="label">Why Choose Us</div>
+            <h2>Why <span>Muscle Nation</span></h2>
+            <p>We offer a world-class training experience designed to push your limits and redefine your potential.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="icon"><i class="fas fa-dumbbell"></i></div>
+                <h3>Strength Zone</h3>
+                <p>Premium free weights, squat racks, benches, and plate-loaded machines for serious lifters.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon"><i class="fas fa-heartbeat"></i></div>
+                <h3>Cardio Arena</h3>
+                <p>State-of-the-art treadmills, ellipticals, rowing machines, and assault bikes for peak endurance.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon"><i class="fas fa-fire-alt"></i></div>
+                <h3>Functional Training</h3>
+                <p>Battle ropes, kettlebells, TRX, plyo boxes — everything for explosive functional fitness.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon"><i class="fas fa-user-shield"></i></div>
+                <h3>Personal Training</h3>
+                <p>Customized 1-on-1 sessions with certified trainers who build programs just for you.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="icon"><i class="fas fa-apple-alt"></i></div>
+                <h3>Nutrition Guidance</h3>
+                <p>Expert meal plans and diet coaching to complement your training and accelerate results.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== MEMBERSHIP ========== -->
+<section class="membership section-padding" id="membership">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <div class="label">Pricing</div>
+            <h2>Membership <span>Plans</span></h2>
+            <p>Choose the plan that fits your goals. Upgrade anytime. Cancel anytime. No hidden fees.</p>
+        </div>
+
+        <div class="plans-grid">
+            <!-- Starter -->
+            <div class="plan-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="plan-name">Starter</div>
+                <div class="price">₹1,499<span>/month</span></div>
+                <div class="admission">Admission Fee: ₹500 (one-time)</div>
+                <div class="divider"></div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Gym Floor Access</li>
+                    <li><i class="fas fa-check"></i> Cardio Zone</li>
+                    <li><i class="fas fa-check"></i> Locker Room Access</li>
+                    <li><i class="fas fa-check"></i> Free WiFi</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Group Classes</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Personal Trainer</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Nutrition Plan</li>
+                </ul>
+                <a href="#contact" class="btn btn-outline" style="width:100%; justify-content:center;">Get Started</a>
+            </div>
+
+            <!-- Pro (Popular) -->
+            <div class="plan-card popular" data-aos="fade-up" data-aos-delay="100">
+                <div class="plan-name">Pro</div>
+                <div class="price">₹2,999<span>/month</span></div>
+                <div class="admission">Admission Fee: ₹1,000 (one-time)</div>
+                <div class="divider"></div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Full Gym Access</li>
+                    <li><i class="fas fa-check"></i> All Group Classes</li>
+                    <li><i class="fas fa-check"></i> Cardio + Strength Zone</li>
+                    <li><i class="fas fa-check"></i> Locker + Shower</li>
+                    <li><i class="fas fa-check"></i> Free WiFi & Parking</li>
+                    <li><i class="fas fa-check"></i> 2 PT Sessions/month</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Full Nutrition Plan</li>
+                </ul>
+                <a href="#contact" class="btn btn-gold" style="width:100%; justify-content:center;">Get Started</a>
+            </div>
+
+            <!-- Elite -->
+            <div class="plan-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="plan-name">Elite</div>
+                <div class="price">₹4,999<span>/month</span></div>
+                <div class="admission">Admission Fee: Waived</div>
+                <div class="divider"></div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Unlimited Full Access</li>
+                    <li><i class="fas fa-check"></i> All Group Classes</li>
+                    <li><i class="fas fa-check"></i> Unlimited PT Sessions</li>
+                    <li><i class="fas fa-check"></i> Custom Nutrition Plan</li>
+                    <li><i class="fas fa-check"></i> Body Composition Tracking</li>
+                    <li><i class="fas fa-check"></i> Priority Booking</li>
+                    <li><i class="fas fa-check"></i> Guest Pass (2/month)</li>
+                </ul>
+                <a href="#contact" class="btn btn-outline" style="width:100%; justify-content:center;">Get Started</a>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq-section" data-aos="fade-up">
+            <h3>Frequently Asked <span class="text-gold">Questions</span></h3>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Can I freeze my membership?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! Pro and Elite members can freeze their membership for up to 30 days per year at no extra cost. Starter members can freeze for 15 days per year.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Is there a joining/admission fee?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Starter and Pro plans have a one-time admission fee. Elite members enjoy a waived admission fee. Check each plan for details.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Can I upgrade my plan later?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely! You can upgrade or downgrade your plan at any time. The price difference will be prorated for your current billing cycle.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Do you offer a free trial?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! We offer a 1-day free trial for all first-time visitors. Book your free trial through our contact form or call us directly.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What are the gym timings?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>We're open from 6:00 AM to 11:00 PM, Monday through Sunday. Elite members get 24/7 key card access.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== CLASS SCHEDULE ========== -->
+<section class="classes section-padding" id="classes">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <div class="label">Schedule</div>
+            <h2>Class <span>Schedule</span></h2>
+            <p>Join our high-energy group classes led by expert instructors. Something for every fitness level.</p>
+        </div>
+
+        <div class="filter-chips" data-aos="fade-up">
+            <button class="chip active" data-filter="all">All Classes</button>
+            <button class="chip" data-filter="yoga">Yoga</button>
+            <button class="chip" data-filter="hiit">HIIT</button>
+            <button class="chip" data-filter="strength">Strength</button>
+            <button class="chip" data-filter="zumba">Zumba</button>
+            <button class="chip" data-filter="crossfit">Cross Training</button>
+        </div>
+
+        <div class="schedule-table-wrapper" data-aos="fade-up" data-aos-delay="100">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                        <th>Sunday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-col">6:00 AM</td>
+                        <td><span class="class-name" data-class="yoga">Power Yoga</span></td>
+                        <td><span class="class-name" data-class="hiit">HIIT Blast</span></td>
+                        <td><span class="class-name" data-class="yoga">Power Yoga</span></td>
+                        <td><span class="class-name" data-class="hiit">HIIT Blast</span></td>
+                        <td><span class="class-name" data-class="yoga">Power Yoga</span></td>
+                        <td><span class="class-name" data-class="crossfit">Cross Training</span></td>
+                        <td class="rest">Rest Day</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">8:00 AM</td>
+                        <td><span class="class-name" data-class="strength">Strength Lab</span></td>
+                        <td><span class="class-name" data-class="crossfit">Cross Training</span></td>
+                        <td><span class="class-name" data-class="strength">Strength Lab</span></td>
+                        <td><span class="class-name" data-class="crossfit">Cross Training</span></td>
+                        <td><span class="class-name" data-class="strength">Strength Lab</span></td>
+                        <td><span class="class-name" data-class="hiit">HIIT Blast</span></td>
+                        <td><span class="class-name" data-class="yoga">Morning Yoga</span></td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">10:00 AM</td>
+                        <td><span class="class-name" data-class="zumba">Zumba Dance</span></td>
+                        <td><span class="class-name" data-class="yoga">Hatha Yoga</span></td>
+                        <td><span class="class-name" data-class="zumba">Zumba Dance</span></td>
+                        <td><span class="class-name" data-class="yoga">Hatha Yoga</span></td>
+                        <td><span class="class-name" data-class="zumba">Zumba Dance</span></td>
+                        <td><span class="class-name" data-class="strength">Power Lifting</span></td>
+                        <td><span class="class-name" data-class="zumba">Zumba Party</span></td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">5:00 PM</td>
+                        <td><span class="class-name" data-class="hiit">Tabata Fire</span></td>
+                        <td><span class="class-name" data-class="strength">Strength Lab</span></td>
+                        <td><span class="class-name" data-class="hiit">Tabata Fire</span></td>
+                        <td><span class="class-name" data-class="strength">Strength Lab</span></td>
+                        <td><span class="class-name" data-class="hiit">Tabata Fire</span></td>
+                        <td><span class="class-name" data-class="zumba">Zumba Dance</span></td>
+                        <td class="rest">Rest Day</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">7:00 PM</td>
+                        <td><span class="class-name" data-class="crossfit">Cross Training</span></td>
+                        <td><span class="class-name" data-class="zumba">Zumba Party</span></td>
+                        <td><span class="class-name" data-class="crossfit">Cross Training</span></td>
+                        <td><span class="class-name" data-class="zumba">Zumba Party</span></td>
+                        <td><span class="class-name" data-class="crossfit">Cross Training</span></td>
+                        <td><span class="class-name" data-class="yoga">Evening Yoga</span></td>
+                        <td class="rest">Rest Day</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="schedule-cta" data-aos="fade-up">
+            <a href="#contact" class="btn btn-gold">
+                <i class="fas fa-calendar-plus"></i> Book a Class
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== TRAINERS ========== -->
+<section class="trainers section-padding" id="trainers">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <div class="label">Our Team</div>
+            <h2>Expert <span>Trainers</span></h2>
+            <p>Our certified professionals are dedicated to helping you achieve your fitness goals with passion and expertise.</p>
+        </div>
+
+        <div class="trainers-grid">
+            <div class="trainer-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="trainer-img">
+                    <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=400&q=80" alt="Trainer Rahul">
+                    <div class="trainer-overlay">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#contact"><i class="fas fa-calendar"></i></a>
+                    </div>
+                </div>
+                <div class="trainer-info">
+                    <h3>Rahul Sharma</h3>
+                    <div class="specialization">Strength & Conditioning</div>
+                    <div class="details">
+                        <span><i class="fas fa-award"></i> NSCA Certified</span>
+                        <span><i class="fas fa-clock"></i> 10+ Years</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trainer-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="trainer-img">
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&q=80" alt="Trainer Priya">
+                    <div class="trainer-overlay">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#contact"><i class="fas fa-calendar"></i></a>
+                    </div>
+                </div>
+                <div class="trainer-info">
+                    <h3>Priya Patel</h3>
+                    <div class="specialization">Yoga & Flexibility</div>
+                    <div class="details">
+                        <span><i class="fas fa-award"></i> RYT-500</span>
+                        <span><i class="fas fa-clock"></i> 8 Years</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trainer-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="trainer-img">
+                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&q=80" alt="Trainer Arjun">
+                    <div class="trainer-overlay">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#contact"><i class="fas fa-calendar"></i></a>
+                    </div>
+                </div>
+                <div class="trainer-info">
+                    <h3>Arjun Mehta</h3>
+                    <div class="specialization">HIIT & CrossFit</div>
+                    <div class="details">
+                        <span><i class="fas fa-award"></i> ACE Certified</span>
+                        <span><i class="fas fa-clock"></i> 6 Years</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trainer-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="trainer-img">
+                    <img src="https://images.unsplash.com/photo-1609899464926-209bc2e0f751?w=400&q=80" alt="Trainer Neha">
+                    <div class="trainer-overlay">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#contact"><i class="fas fa-calendar"></i></a>
+                    </div>
+                </div>
+                <div class="trainer-info">
+                    <h3>Neha Singh</h3>
+                    <div class="specialization">Zumba & Dance Fitness</div>
+                    <div class="details">
+                        <span><i class="fas fa-award"></i> ZIN Certified</span>
+                        <span><i class="fas fa-clock"></i> 5 Years</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== TRANSFORMATIONS ========== -->
+<section class="transformations section-padding" id="transformations">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <div class="label">Real Results</div>
+            <h2>Member <span>Transformations</span></h2>
+            <p>Real members. Real results. Drag the slider to see their incredible before & after transformations.</p>
+        </div>
+
+        <div class="transformation-grid">
+            <!-- Transformation 1 -->
+            <div class="transformation-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="ba-slider">
+                    <div class="ba-image ba-after">
+                        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80" alt="After Transformation">
+                    </div>
+                    <div class="ba-image ba-before">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80" alt="Before Transformation">
+                    </div>
+                    <div class="ba-handle"></div>
+                    <div class="ba-label before-label">Before</div>
+                    <div class="ba-label after-label">After</div>
+                </div>
+                <div class="transformation-story">
+                    <h3>Vikram Rajput</h3>
+                    <div class="goal">Goal: Fat Loss & Muscle Gain</div>
+                    <p>Vikram lost 18kg and gained lean muscle in just 16 weeks with our Pro plan and personal training sessions. A true Muscle Nation warrior.</p>
+                    <div class="transformation-meta">
+                        <div class="meta-item">
+                            <div class="meta-value">-18kg</div>
+                            <div class="meta-label">Weight Lost</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-value">16</div>
+                            <div class="meta-label">Weeks</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-value">12%</div>
+                            <div class="meta-label">Body Fat</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transformation 2 -->
+            <div class="transformation-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="ba-slider">
+                    <div class="ba-image ba-after">
+                        <img src="https://images.unsplash.com/photo-1550345332-09e3ac987658?w=600&q=80" alt="After Transformation">
+                    </div>
+                    <div class="ba-image ba-before">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="Before Transformation">
+                    </div>
+                    <div class="ba-handle"></div>
+                    <div class="ba-label before-label">Before</div>
+                    <div class="ba-label after-label">After</div>
+                </div>
+                <div class="transformation-story">
+                    <h3>Sneha Kapoor</h3>
+                    <div class="goal">Goal: Toning & Strength</div>
+                    <p>Sneha went from sedentary to strong in 12 weeks. With Zumba, HIIT, and a custom nutrition plan, she transformed her lifestyle completely.</p>
+                    <div class="transformation-meta">
+                        <div class="meta-item">
+                            <div class="meta-value">-10kg</div>
+                            <div class="meta-label">Weight Lost</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-value">12</div>
+                            <div class="meta-label">Weeks</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-value">22%</div>
+                            <div class="meta-label">Body Fat</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section class="testimonials section-padding" id="testimonials">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <div class="label">Reviews</div>
+            <h2>What Members <span>Say</span></h2>
+            <p>Don't just take our word for it — hear from the Muscle Nation family.</p>
+        </div>
+
+        <div class="swiper testimonial-swiper" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            Muscle Nation completely changed my life. The trainers are incredible, the equipment is world-class, and the atmosphere keeps me coming back every single day.
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Amit">
+                            <div>
+                                <h4>Amit Verma</h4>
+                                <p>Member since 2022</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            The Zumba classes are SO much fun! I've lost 12kg without feeling like I'm even working out. The community here is like family. Highly recommended!
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Pooja">
+                            <div>
+                                <h4>Pooja Desai</h4>
+                                <p>Member since 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            Best gym I've ever been to. The personal training program is worth every penny. Rahul sir helped me gain 8kg of pure muscle in 4 months. Beast mode activated!
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Karan">
+                            <div>
+                                <h4>Karan Malhotra</h4>
+                                <p>Elite Member</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            From the moment I walked in, I felt welcomed. Clean facility, amazing staff, and the nutrition guidance helped me understand food like never before.
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&q=80" alt="Riya">
+                            <div>
+                                <h4>Riya Joshi</h4>
+                                <p>Pro Member</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 5 -->
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            The CrossFit sessions pushed me beyond my limits. I've competed in my first fitness competition thanks to Arjun's coaching. Muscle Nation is the real deal!
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Deepak">
+                            <div>
+                                <h4>Deepak Chauhan</h4>
+                                <p>Elite Member</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="contact section-padding" id="contact">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <div class="label">Get In Touch</div>
+            <h2>Contact <span>Us</span></h2>
+            <p>Ready to start your fitness journey? Reach out to us or book your free trial session today.</p>
+        </div>
+
+        <div class="contact-grid">
+            <!-- Left - Info & Map -->
+            <div data-aos="fade-right">
+                <div class="contact-info-cards">
+                    <div class="contact-card">
+                        <i class="fas fa-phone-alt"></i>
+                        <h4>Call Us</h4>
+                        <p><a href="tel:+91XXXXXXXXXX">+91-XXXXXXXXXX</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fab fa-whatsapp"></i>
+                        <h4>WhatsApp</h4>
+                        <p><a href="https://wa.me/91XXXXXXXXXX" target="_blank">Chat Now</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p><a href="mailto:info@musclenation.com">info@musclenation.com</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>Hours</h4>
+                        <p>6:00 AM – 11:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="contact-card" style="margin-bottom: 20px;">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Our Location</h4>
+                    <p>Your Address Here, City, State – PIN</p>
+                </div>
+
+                <div class="map-container">
+                    <!-- REPLACE: Change src to your actual Google Maps embed URL -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0977073547!2d-122.41941548468156!3d37.77492977975892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064f0!2sYour%20Gym!5e0!3m2!1sen!2sin!4v1234567890" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        title="Muscle Nation Location">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Right - Form -->
+            <div data-aos="fade-left">
+                <div class="contact-form">
+                    <h3>Book Your <span>Free Trial</span></h3>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" placeholder="+91-XXXXXXXXXX" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="your@email.com">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="goal">Fitness Goal</label>
+                                <select id="goal">
+                                    <option value="">Select your goal</option>
+                                    <option value="weight-loss">Weight Loss</option>
+                                    <option value="muscle-gain">Muscle Gain</option>
+                                    <option value="toning">Body Toning</option>
+                                    <option value="flexibility">Flexibility & Yoga</option>
+                                    <option value="general">General Fitness</option>
+                                    <option value="competition">Competition Prep</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Preferred Time</label>
+                                <select id="time">
+                                    <option value="">Select time</option>
+                                    <option value="morning">Morning (6–9 AM)</option>
+                                    <option value="mid-morning">Mid-Morning (9–12 PM)</option>
+                                    <option value="afternoon">Afternoon (12–4 PM)</option>
+                                    <option value="evening">Evening (4–8 PM)</option>
+                                    <option value="night">Night (8–11 PM)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message (Optional)</label>
+                            <textarea id="message" rows="3" placeholder="Tell us about your fitness journey..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-gold" style="width:100%; justify-content:center;">
+                            <i class="fas fa-paper-plane"></i> Submit & Book Trial
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#home" class="nav-logo">
+    <img src="image.png" class="footer-logo">
+    Muscle<span>Nation</span>
+</a>
+                <p>Your premier fitness destination. We're committed to helping you build strength, confidence, and a healthier lifestyle. Train Strong. Live Strong.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#features"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#membership"><i class="fas fa-chevron-right"></i> Membership</a></li>
+                    <li><a href="#classes"><i class="fas fa-chevron-right"></i> Classes</a></li>
+                    <li><a href="#trainers"><i class="fas fa-chevron-right"></i> Trainers</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Programs</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Personal Training</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Group Classes</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Nutrition Plans</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Transformation</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Fitness</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+91XXXXXXXXXX"><i class="fas fa-phone"></i> +91-XXXXXXXXXX</a></li>
+                    <li><a href="mailto:info@musclenation.com"><i class="fas fa-envelope"></i> info@musclenation.com</a></li>
+                    <li><a href="#contact"><i class="fas fa-map-marker-alt"></i> Your Address Here</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i> 6 AM – 11 PM Daily</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 <span>Muscle Nation</span>. All Rights Reserved.</p>
+            <p>Designed By Uday <i class="fas fa-heart" style="color: var(--gold);"></i></p>
+        </div>
+    </div>
+</footer>
+
+<!-- ========== FLOATING BUTTONS ========== -->
+<div class="floating-btns">
+    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="float-btn whatsapp" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="tel:+91XXXXXXXXXX" class="float-btn call" title="Call Us">
+        <i class="fas fa-phone-alt"></i>
+    </a>
+    <button class="float-btn scroll-top" id="scrollTopBtn" title="Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+</div>
+
+<!-- ========== SCRIPTS ========== -->
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Swiper -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+    // ========================================
+    // PRELOADER
+    // ========================================
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.getElementById('preloader').classList.add('hide');
+        }, 1500);
+    });
+
+    // ========================================
+    // AOS INITIALIZATION
+    // ========================================
+    AOS.init({
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 80,
+        disable: 'mobile'
+    });
+
+    // ========================================
+    // NAVBAR SCROLL EFFECT
+    // ========================================
+    const navbar = document.getElementById('navbar');
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+
+        // Scroll to top button
+        if (window.scrollY > 500) {
+            scrollTopBtn.classList.add('show');
+        } else {
+            scrollTopBtn.classList.remove('show');
+        }
+
+        // Active nav link based on scroll position
+        updateActiveNavLink();
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ========================================
+    // ACTIVE NAV LINK ON SCROLL
+    // ========================================
+    function updateActiveNavLink() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        let currentSection = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 150;
+            if (window.scrollY >= sectionTop) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // ========================================
+    // MOBILE MENU
+    // ========================================
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function toggleMobileMenu() {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        mobileOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', toggleMobileMenu);
+    mobileOverlay.addEventListener('click', toggleMobileMenu);
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('active')) {
+                toggleMobileMenu();
+            }
+        });
+    });
+
+    // ========================================
+    // SWIPER TESTIMONIALS
+    // ========================================
+    const testimonialSwiper = new Swiper('.testimonial-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 25,
+        loop: true,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: 3,
+            },
+        },
+    });
+
+    // ========================================
+    // FAQ ACCORDION
+    // ========================================
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.parentElement;
+            const isActive = item.classList.contains('active');
+
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+            // Toggle current
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // ========================================
+    // BEFORE/AFTER SLIDER
+    // ========================================
+    document.querySelectorAll('.ba-slider').forEach(slider => {
+        const before = slider.querySelector('.ba-before');
+        const handle = slider.querySelector('.ba-handle');
+        let isDragging = false;
+
+        function updateSlider(x) {
+            const rect = slider.getBoundingClientRect();
+            let position = ((x - rect.left) / rect.width) * 100;
+            position = Math.max(5, Math.min(95, position));
+
+            before.style.width = position + '%';
+            handle.style.left = position + '%';
+        }
+
+        // Mouse events
+        handle.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            e.preventDefault();
+        });
+
+        slider.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            updateSlider(e.clientX);
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                updateSlider(e.clientX);
+            }
+        });
+
+        window.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        // Touch events
+        handle.addEventListener('touchstart', (e) => {
+            isDragging = true;
+        });
+
+        slider.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            updateSlider(e.touches[0].clientX);
+        });
+
+        slider.addEventListener('touchmove', (e) => {
+            if (isDragging) {
+                updateSlider(e.touches[0].clientX);
+                e.preventDefault();
+            }
+        });
+
+        window.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+    });
+
+    // ========================================
+    // COUNTER ANIMATION
+    // ========================================
+    const counters = document.querySelectorAll('.counter');
+    let counterAnimated = false;
+
+    function animateCounters() {
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    counter.textContent = Math.ceil(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target.toLocaleString();
+                }
+            };
+
+            updateCounter();
+        });
+    }
+
+    // Trigger counter animation when section is visible
+    const counterSection = document.querySelector('.counter-section');
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !counterAnimated) {
+                counterAnimated = true;
+                animateCounters();
+            }
+        });
+    }, { threshold: 0.5 });
+
+    if (counterSection) {
+        counterObserver.observe(counterSection);
+    }
+
+    // ========================================
+    // CLASS SCHEDULE FILTER
+    // ========================================
+    document.querySelectorAll('.chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            // Update active chip
+            document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+
+            const filter = chip.getAttribute('data-filter');
+            const classNames = document.querySelectorAll('.schedule-table .class-name');
+
+            classNames.forEach(cn => {
+                const cell = cn.closest('td');
+                if (filter === 'all') {
+                    cell.style.opacity = '1';
+                    cell.style.background = '';
+                } else if (cn.getAttribute('data-class') === filter) {
+                    cell.style.opacity = '1';
+                    cell.style.background = 'rgba(212, 175, 55, 0.15)';
+                } else {
+                    cell.style.opacity = '0.3';
+                    cell.style.background = '';
+                }
+            });
+        });
+    });
+
+    // ========================================
+    // FORM SUBMISSION
+    // ========================================
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value;
+
+        // Show success message
+        const form = e.target;
+        const btn = form.querySelector('button[type="submit"]');
+        const originalText = btn.innerHTML;
+
+        btn.innerHTML = '<i class="fas fa-check"></i> Thank You, ' + name + '!';
+        btn.style.background = '#27ae60';
+        btn.style.borderColor = '#27ae60';
+        btn.disabled = true;
+
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+            btn.style.borderColor = '';
+            btn.disabled = false;
+            form.reset();
+        }, 3000);
+    });
+
+    // ========================================
+    // SMOOTH SCROLL FIX FOR SAFARI
+    // ========================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+
+window.addEventListener("load",function(){
+
+    setTimeout(function(){
+
+        document.getElementById("preloader").style.opacity="0";
+
+        setTimeout(function(){
+            document.getElementById("preloader").style.display="none";
+        },600)
+
+    },2200)
+
+})
+
+
+</script>
