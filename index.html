@@ -381,7 +381,8 @@
     /* Mobile Menu */
     .mobile-menu {
         position: fixed;
-        top: 0;
+        top: 80px;
+        height: calc(100vh - 80px);
         right: -100%;
         width: 80%;
         max-width: 400px;
@@ -436,6 +437,7 @@
        HERO SECTION
        ======================================== */
     .hero {
+     paadding-top:100px;
         position: relative;
         height: 100vh;
         min-height: 700px;
@@ -1826,15 +1828,15 @@ margin-right:8px;
 /* PRELOADER LOGO */
 
 .logo-loader{
-width: 120px;px;
+width: 120px;
 margin:auto;
 margin-bottom:10px;
 animation:logoPop 1.2s ease;
 }
 
 .logo-loader img{
-width: 1190px;
-
+ width:100%;
+max-width:220px;
 }
 
 @keyframes logoPop{
@@ -3153,6 +3155,7 @@ window.addEventListener("load",function(){
     },2200)
 
 })
+
 
 
 </script>
